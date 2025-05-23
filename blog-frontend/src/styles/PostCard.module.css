@@ -1,0 +1,43 @@
+.postCard {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  padding: 24px;
+  margin: 20px 0;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.postCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 123, 255, 0.15);
+}
+
+.postCard h2 {
+  font-size: 24px;
+  margin-bottom: 12px;
+  color: #007bff;
+  font-weight: 600;
+}
+
+.postCard p {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 18px;
+  line-height: 1.6;
+}
+
+.postCard a {
+  text-decoration: none;
+  color: #fff;
+  background-color: #007bff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.postCard a:hover {
+  background-color: #0056b3;
+}

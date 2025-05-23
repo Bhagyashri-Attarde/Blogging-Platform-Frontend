@@ -1,0 +1,82 @@
+.dashboardContainer {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #f0f4f8;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dashboardTitle {
+  font-size: 2rem;
+  color: #1f2937;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.createPostBtn {
+  display: inline-block;
+  background-color: #2563eb;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s;
+  margin-bottom: 2rem;
+}
+
+.createPostBtn:hover {
+  background-color: #1d4ed8;
+}
+
+.postCard {
+  background: white;
+  border-left: 6px solid #3b82f6;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.postCard h2 {
+  font-size: 1.5rem;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.postActions {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.editBtn,
+.deleteBtn {
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.editBtn {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+
+.editBtn:hover {
+  background-color: #bae6fd;
+}
+
+.deleteBtn {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+.deleteBtn:hover {
+  background-color: #fecaca;
+}

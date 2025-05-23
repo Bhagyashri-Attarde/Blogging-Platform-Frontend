@@ -1,0 +1,73 @@
+/* NewPost.module.css */
+
+form {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 30px 25px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 123, 255, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input[type="text"] {
+  padding: 14px 18px;
+  font-size: 18px;
+  border-radius: 8px;
+  border: 2px solid #007bff;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #0056b3;
+  box-shadow: 0 0 8px #0056b3;
+}
+
+button[type="submit"] {
+  padding: 15px 0;
+  background: linear-gradient(90deg, #007bff 0%, #00c6ff 100%);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+button[type="submit"]:hover {
+  background: linear-gradient(90deg, #0056b3 0%, #00aaff 100%);
+  box-shadow: 0 8px 25px rgba(0, 86, 179, 0.6);
+}
+
+button[type="submit"]:active {
+  transform: scale(0.97);
+}
+
+.EditorWrapper {
+  border: 2px solid #007bff;
+  border-radius: 8px;
+  min-height: 200px;
+  padding: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  form {
+    margin: 20px 10px;
+    padding: 20px 15px;
+  }
+
+  input[type="text"],
+  button[type="submit"] {
+    font-size: 16px;
+    padding: 12px 14px;
+  }
+}

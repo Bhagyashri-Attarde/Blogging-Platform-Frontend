@@ -1,0 +1,52 @@
+.formContainer {
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 30px;
+  background: linear-gradient(145deg, #f0f0f0, #ffffff);
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.formContainer h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  color: #333;
+}
+
+.inputField {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 18px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border 0.3s ease;
+  box-sizing: border-box;
+}
+
+.inputField:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 12px;
+  background: #007bff;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submitButton:hover {
+  background: #0056b3;
+}
+
+.errorMessage {
+  color: red;
+  text-align: center;
+  margin-bottom: 12px;
+}
