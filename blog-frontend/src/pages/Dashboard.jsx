@@ -8,21 +8,18 @@ const Dashboard = () => {
   const [posts, setPosts] = useState([]);
   const { user } = useContext(AuthContext);
 
+  useEffect(() => {
+    if (!user) {
+      setPosts([]);
+      return;
+    }
 
-
-useEffect(() => {
-  if (!user) {
-    setPosts([]); // Clear posts if user logs out
-    return;
-  }
-
-  API.get('/posts').then((res) => {
-    const userPosts = res.data.filter((post) => post.userId === user.id);
-    setPosts(userPosts);
-  });
-}, [user]);
-
-
+    API.get('/posts/user/me')
+      .then((res) => {
+        setPosts(res.data);
+      })
+      .catch((err) => console.error(err));
+  }, [user]);
 
   const handleDelete = async (id) => {
     await API.delete(`/posts/${id}`);
@@ -30,20 +27,19 @@ useEffect(() => {
   };
 
   return (
-   <div className={styles.dashboardContainer}>
-  <h1 className={styles.dashboardTitle}>Your Posts</h1>
-  <Link to="/new" className={styles.createPostBtn}>Create New Post</Link>
-  {posts.map((post) => (
-    <div key={post.id} className={styles.postCard}>
-      <h2>{post.title}</h2>
-      <div className={styles.postActions}>
-        <Link to={`/edit/${post.id}`} className={styles.editBtn}>Edit</Link>
-        <button onClick={() => handleDelete(post.id)} className={styles.deleteBtn}>Delete</button>
-      </div>
+    <div className={styles.dashboardContainer}>
+      <h1 className={styles.dashboardTitle}>Your Posts</h1>
+      <Link to="/new" className={styles.createPostBtn}>Create New Post</Link>
+      {posts.map((post) => (
+        <div key={post.id} className={styles.postCard}>
+          <h2>{post.title}</h2>
+          <div className={styles.postActions}>
+            <Link to={`/edit/${post.id}`} className={styles.editBtn}>Edit</Link>
+            <button onClick={() => handleDelete(post.id)} className={styles.deleteBtn}>Delete</button>
+          </div>
+        </div>
+      ))}
     </div>
-  ))}
-</div>
-
   );
 };
 
