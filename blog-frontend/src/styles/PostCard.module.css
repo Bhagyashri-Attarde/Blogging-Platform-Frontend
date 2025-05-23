@@ -41,3 +41,8 @@
 .postCard a:hover {
   background-color: #0056b3;
 }
+.meta {
+  color: #555;
+  font-size: 0.9rem;
+  margin-top: 8px;
+}

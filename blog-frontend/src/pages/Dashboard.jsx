@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import API from '../api/api';
@@ -9,26 +10,34 @@ const Dashboard = () => {
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    if (!user) {
-      setPosts([]);
-      return;
-    }
-
-    API.get('/posts/user/me')
-      .then((res) => {
+    const fetchUserPosts = async () => {
+      if (!user) {
+        setPosts([]);
+        return;
+      }
+      try {
+        const res = await API.get('/posts/user/me');
         setPosts(res.data);
-      })
-      .catch((err) => console.error(err));
+      } catch (err) {
+        console.error('Failed to fetch user posts', err);
+      }
+    };
+
+    fetchUserPosts();
   }, [user]);
 
   const handleDelete = async (id) => {
-    await API.delete(`/posts/${id}`);
-    setPosts(posts.filter((post) => post.id !== id));
+    try {
+      await API.delete(`/posts/${id}`);
+      setPosts(posts.filter((post) => post.id !== id));
+    } catch (err) {
+      console.error('Delete failed', err);
+    }
   };
 
   return (
     <div className={styles.dashboardContainer}>
-      <h1 className={styles.dashboardTitle}>Your Posts</h1>
+      <h1 className={styles.dashboardTitle}>My Posts</h1>
       <Link to="/new" className={styles.createPostBtn}>Create New Post</Link>
       {posts.map((post) => (
         <div key={post.id} className={styles.postCard}>

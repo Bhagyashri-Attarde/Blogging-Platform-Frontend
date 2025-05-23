@@ -8,7 +8,10 @@ const PostDetail = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    API.get(`/posts/${id}`).then((res) => setPost(res.data));
+    API.get(`/posts/${id}`).then((res) => {
+      console.log('Post data from API:', res.data);
+      setPost(res.data);
+    });
   }, [id]);
 
   if (!post) return <div className={styles.loading}>Loading...</div>;
@@ -17,7 +20,9 @@ const PostDetail = () => {
     <div className={styles.container}>
       <h1 className={styles.title}>{post.title}</h1>
       <div className={styles.meta}>
-        <span className={styles.author}>By {post.author || 'Unknown Author'}</span>
+        <span className={styles.author}>
+          By {post.author?.username || post.User?.username || 'Unknown Author'}
+        </span>
         <span className={styles.date}>
           {new Date(post.createdAt).toLocaleDateString()}
         </span>
@@ -30,10 +35,9 @@ const PostDetail = () => {
         </div>
       )}
       <div
-  className={styles.content}
-  dangerouslySetInnerHTML={{ __html: post.content }}
-/>
-
+        className={styles.content}
+        dangerouslySetInnerHTML={{ __html: post.content }}
+      />
     </div>
   );
 };
